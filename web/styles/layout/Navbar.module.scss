@@ -1,0 +1,71 @@
+@import "../../styles/utilities/_colors.scss";
+
+.toolbar {
+  height: 60px;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: $primary-color;
+  padding-inline: 90px;
+  /* Force the navbar to stay fixed to the upper left corner */
+  left: 0px;
+  top: 0px;
+}
+
+.navbarLogo {
+  width: 50px;
+  height: 50px;
+  flex: 0 1 50px;
+  border-color: rgba(38, 50, 56, 0);
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 4px;
+  transition: border-width 0.1s;
+}
+.navbarLogo:hover {
+  border-width: 0px;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.navPages {
+  display: flex;
+  padding: 10px;
+}
+.navPages a {
+  margin-inline: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.navPages a:hover {
+  color: $secondary-color;
+}
+
+.navIcons {
+  display: flex;
+  align-items: center;
+}
+.navIcons a {
+  margin-inline: 10px;
+}
+
+.reactIcon:hover {
+  color: $secondary-color !important;
+}
+
+@media (max-width: 710px) {
+  .navbar {
+    justify-content: space-between;
+  }
+}

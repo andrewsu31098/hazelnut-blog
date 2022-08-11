@@ -1,0 +1,27 @@
+.LandingCard {
+  background-color: #000a12;
+  height: 500px;
+  padding-inline: 300px;
+  padding-block: 100px;
+  transition: padding-inline 1s, padding-block 1s;
+  /* transition: border 0.5s; */
+}
+.LandingInnerBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.LandingInnerBox h1 {
+  color: white;
+}
+.LandingInnerBox p {
+  color: white;
+}
+.LandingLinks {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+.LandingLinks button {
+  margin-right: 20px;
+}
