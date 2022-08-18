@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "npm run build && next export",
     "lint": "next lint"
   },
   "dependencies": {

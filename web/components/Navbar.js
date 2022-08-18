@@ -12,7 +12,7 @@ const navPages = [
   { name: "Home", path: "/" },
   {
     name: "Blog",
-    path: "#getStarted",
+    path: "/#getStarted",
   },
   {
     name: "Newsletter",
