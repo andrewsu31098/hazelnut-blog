@@ -1,27 +1,48 @@
+@import "../utilities/_breakpoints.scss";
+
 .LandingCard {
   background-color: #000a12;
   height: 500px;
-  padding-inline: 300px;
-  padding-block: 100px;
-  transition: padding-inline 1s, padding-block 1s;
-  /* transition: border 0.5s; */
+  @include mobile-breakpoint-down {
+    & {
+      height: 400px;
+      font-size: 0.8rem;
+    }
+  }
+  position: relative;
 }
+
 .LandingInnerBox {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  left: 17.5%;
+  top: 22%;
+  padding-right: 40px;
+  @include mobile-breakpoint-down {
+    & {
+      position: static;
+      padding-right: 0px;
+      padding-inline: 30px;
+      padding-top: 50px;
+    }
+  }
+  h1 {
+    color: white;
+  }
+  p {
+    color: white;
+  }
 }
 
-.LandingInnerBox h1 {
-  color: white;
-}
-.LandingInnerBox p {
-  color: white;
-}
 .LandingLinks {
   display: flex;
   justify-content: flex-start;
   margin-top: 20px;
-}
-.LandingLinks button {
-  margin-right: 20px;
+  button {
+    margin-right: 20px;
+  }
+  a {
+    margin-right: 20px;
+  }
 }

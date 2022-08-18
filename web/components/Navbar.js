@@ -1,39 +1,32 @@
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
-import { slide as Menu } from "react-burger-menu";
 import { IconContext } from "react-icons";
+import { tabletQuery } from "../utilities/breakpoints.js";
 
 import styles from "../styles/layout/Navbar.module.scss";
 
-import {
-  AiOutlineLinkedin,
-  AiOutlineGithub,
-  AiOutlineSearch,
-} from "react-icons/ai";
+import { AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
+import { useEffect } from "react";
 
 const navPages = [
   { name: "Home", path: "/" },
   {
-    name: "About Us",
-    path: "/about",
-  },
-  {
     name: "Blog",
-    path: "/blog",
+    path: "#getStarted",
   },
   {
-    name: "Contact Us",
-    path: "#contact",
+    name: "Newsletter",
+    path: "/newsletter",
   },
 ];
 
 function Navbar(props) {
-  const isSmall = useMediaQuery({
-    query: "(max-width: 700px)",
+  var isTablet = useMediaQuery({
+    query: tabletQuery,
   });
 
-  const navPageComponents = navPages.map(({ name, path }) => (
-    <Link href={path}>
+  const navPageComponents = navPages.map(({ name, path }, index) => (
+    <Link key={path + index} href={path}>
       <a>{name}</a>
     </Link>
   ));
@@ -43,7 +36,10 @@ function Navbar(props) {
       <div className={styles.navPages}>{navPageComponents}</div>
 
       <div className={styles.navIcons}>
-        <a href="/">
+        <a
+          href="https://www.linkedin.com/in/andrew-s-a1a9a0159/"
+          target="_blank"
+        >
           <IconContext.Provider
             value={{ className: "shared-class", size: 30, color: "white" }}
           >
@@ -52,21 +48,12 @@ function Navbar(props) {
             </>
           </IconContext.Provider>
         </a>
-        <a href="/blog">
+        <a href="https://github.com/andrewsu31098" target="_blank">
           <IconContext.Provider
             value={{ className: "shared-class", size: 30, color: "white" }}
           >
             <>
               <AiOutlineGithub className={styles.reactIcon} />
-            </>
-          </IconContext.Provider>
-        </a>
-        <a href="/about">
-          <IconContext.Provider
-            value={{ className: "shared-class", size: 30, color: "white" }}
-          >
-            <>
-              <AiOutlineSearch className={styles.reactIcon} />
             </>
           </IconContext.Provider>
         </a>
@@ -79,7 +66,7 @@ function Navbar(props) {
       <div className={styles.toolbar}></div>
       <nav className={styles.navbar}>
         <img src="/mini-hazelnut.png" className={styles.navbarLogo} />
-        <div className={styles.navLinks}>{!isSmall ? navLinks : null}</div>
+        <div className={styles.navLinks}>{!isTablet ? navLinks : null}</div>
       </nav>
     </>
   );

@@ -1,0 +1,19 @@
+.AuthorCard {
+  display: flex;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.AuthorInfo {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-block: 5px;
+
+  p:first-of-type {
+    line-height: 1.5rem;
+    margin-block: 0;
+  }
+}

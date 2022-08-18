@@ -4,6 +4,9 @@ import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
 import client from "../../client";
 
+import styles from "../../styles/pages/blog/slug.module.scss";
+import AuthorCard from "../../components/AuthorCard.js";
+
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
@@ -34,28 +37,30 @@ const Blog = ({ post }) => {
     name = "Missing name",
     categories,
     authorImage,
+    mainImage,
+    imageCredit,
     body = [],
   } = post;
   return (
-    <article>
+    <article className={styles.blogBody}>
+      <AuthorCard authorImage={authorImage} name={name} urlFor={urlFor} />
       <h1>{title}</h1>
-      <span>By {name}</span>
+
       {categories && (
-        <ul>
-          Posted in
-          {categories.map((category) => (
-            <li key={category}>{category}</li>
-          ))}
-        </ul>
-      )}
-      {authorImage && (
         <div>
-          <img
-            src={urlFor(authorImage).width(50).url()}
-            alt={`${name}'s picture`}
-          />
+          <span>Series » </span>
+          {categories.map((category) => (
+            <b>
+              <span key={category}>{category}</span>
+            </b>
+          ))}
         </div>
       )}
+
+      {mainImage && <img src={urlFor(mainImage).url()} />}
+      <span>
+        <PortableText value={imageCredit} components={ptComponents} />
+      </span>
       <PortableText value={body} components={ptComponents} />
     </article>
   );
@@ -66,6 +71,8 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
+  mainImage,
+  imageCredit,
   body
 }`;
 export async function getStaticPaths() {

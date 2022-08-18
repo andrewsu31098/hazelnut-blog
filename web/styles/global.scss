@@ -1,6 +1,6 @@
 @import "./utilities/_font.scss";
 @import "./utilities/_colors.scss";
-
+@import "./utilities/_typography.scss";
 /* ///// DEFAULT STYLING ////////////*/
 /* ///// //////////// ///////////////*/
 html,
@@ -14,6 +14,7 @@ body {
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth !important;
 }
 
 a {
@@ -21,14 +22,11 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 img {
   max-width: 100%;
   display: block;
 }
+
 /* ///// END OF DEFAULT STYLING //////*/
 /* ///// //////////// ///////////////*/
 

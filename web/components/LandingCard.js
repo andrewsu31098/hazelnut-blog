@@ -1,5 +1,6 @@
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+
 import landingStyles from "../styles/components/LandingCard.module.scss";
-import Button from "./Button.js";
 import btnStyles from "../styles/components/Button.module.scss";
 
 function LandingCard(props) {
@@ -13,10 +14,12 @@ function LandingCard(props) {
         <h1>Welcome to my website.</h1>
         <p>Join my newsletter to see coding tutorials, reviews, and more :)</p>
         <div className={landingStyles.LandingLinks}>
-          <button className={btnStyles["btn-primary"]}>Get Started</button>
-          <button className={btnStyles["btn-secondary"]}>
+          <a href="#getStarted" className={btnStyles["btn-primary"]}>
+            Get Started
+          </a>
+          <a href="/newsletter" className={btnStyles["btn-secondary"]}>
             Join Newsletter
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import Navbar from "./Navbar.js";
 import { slide as Menu } from "react-burger-menu";
 
 import { useMediaQuery } from "react-responsive";
+import { tabletQuery } from "../utilities/breakpoints.js";
 
 export default function Layout({ children }) {
   const sideBar = (
@@ -19,14 +20,14 @@ export default function Layout({ children }) {
       </a>
     </Menu>
   );
-  const isSmall = useMediaQuery({
-    query: "(max-width: 700px)",
+  const isTablet = useMediaQuery({
+    query: tabletQuery,
   });
 
   return (
     <>
       <div id="outer-container">
-        {isSmall ? sideBar : null}
+        {isTablet ? sideBar : null}
         <Navbar />
         <main>{children}</main>
       </div>
