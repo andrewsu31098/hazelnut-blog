@@ -1,5 +1,5 @@
-# hazelnut-blog
+# one-blog
 My personal custom designed blogging platform.
 
 ##Link
-https://hazelwebstudios.netlify.app/
+https://onewebcafe.netlify.app/
